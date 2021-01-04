@@ -1,14 +1,16 @@
 version: 2.1
-jobs:
-  deploy-static-website-to-s3:
-    docker:
-      - image: 'cimg/python:3.6'
-    steps:
-      - checkout
-      - aws-s3/sync:
-          arguments: |
-            --acl public-read
-          from: website
-          to: 's3://db-aws-bucket/'      
+workflows:
+  deployment:
+    jobs:
+      deploy-static-website-to-s3:
+        docker:
+          - image: 'cimg/python:3.6'
+        steps:
+          - checkout
+          - aws-s3/sync:
+              arguments: |
+                --acl public-read
+              from: website
+              to: 's3://db-aws-bucket/'      
 orbs:
   aws-s3: circleci/aws-s3@2.0.0
