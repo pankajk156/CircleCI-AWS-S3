@@ -6,9 +6,7 @@ jobs:
     steps:
       - checkout
       - aws-s3/sync:
-          arguments: |
-            --acl public-read
-          from: website
-          to: 's3://db-aws-bucket-2'      
+         from: website
+         to: 's3://db-aws-bucket-2'      
 orbs:
   aws-s3: circleci/aws-s3@2.0.0
