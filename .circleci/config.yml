@@ -7,6 +7,6 @@ jobs:
       - checkout
       - aws-s3/sync:
          from: website
-         to: 's3://db-aws-bucket-2/*'      
+         to: 's3://db-aws-bucket-2'      
 orbs:
   aws-s3: circleci/aws-s3@2.0.0
